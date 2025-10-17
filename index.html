@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaza Techware | Modern Technology Solutions</title>
+
+    <link rel="icon" type="image/png" href="logo/gazatecware.png"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00e5ff;
+            --secondary-color: #ff5722;
+            --dark-bg: #0A0A0A;
+            --light-text: #f0f0f0;
+            --card-bg: #1A1A1A;
+            --form-bg: #222222;
+            --font-stack: 'Inter', sans-serif;
+            --sub-text: #b0b0b0;
+            --border-radius: 8px;
+            --standard-padding: 12px 25px;
+            --transition-speed: 0.3s;
+            --subtle-glow: 0 0 10px rgba(0, 229, 255, 0.2);
+            --facebook-blue: #1877F2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            line-height: 1.7; 
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--light-text);
+        }
+        
+       
+        h1 { font-size: 3.8em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+        p { font-size: 1em; }
+
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: #33ffff;
+        }
+        
+        .cta-button, .reset-button {
+            padding: 14px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-transform: uppercase;
+            font-size: 1em !important;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--dark-bg) !important;
+            box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #33ffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 229, 255, 0.7);
+        }
+        
+
+        .reset-button {
+            background-color: var(--secondary-color);
+            color: var(--dark-bg) !important;
+            box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+        }
+
+        .reset-button:hover {
+            background-color: #ff8a65;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 87, 34, 0.5);
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        
+        .site-logo img {
+            height: 50px; 
+            width: auto;
+            display: block; 
+            filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.5));
+            transition: filter var(--transition-speed);
+        }
+        
+        .site-logo img:hover {
+            filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .site-nav a {
+            color: var(--light-text);
+            font-weight: 500;
+            transition: color var(--transition-speed), text-shadow var(--transition-speed);
+        }
+        
+        .site-nav a:hover {
+             color: var(--primary-color);
+             text-shadow: 0 0 8px var(--primary-color);
+        }
+        
+        .site-nav a:not(.cta-button)::after {
+            display: none;
+        }
+
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px; 
+            height: 4px;
+            background-color: var(--primary-color); 
+            margin: 20px auto 0;
+            border-radius: 3px;
+            box-shadow: var(--subtle-glow);
+        }
+        
+        .hero-section {
+            padding: 180px 5% 150px;
+            text-align: center;
+            background-color: var(--dark-bg);
+            
+            background-image: 
+                radial-gradient(circle at center, rgba(0, 229, 255, 0.08) 1px, transparent 0),
+                repeating-linear-gradient(to right, #151515, #151515 50px, #181818 50px, #181818 100px);
+            background-size: 10px 10px, 100% 100%; 
+            position: relative;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.1); 
+        }
+
+        .hero-section::before {
+            
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.1), transparent 70%);
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 1; 
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative; 
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5em !important; 
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2em !important;
+            margin-bottom: 50px;
+            color: var(--sub-text);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        #services, #policy, #terms, #contact {
+            background-image: 
+                url('https://i.imgur.com/k9b0Y1Q.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: color-burn; 
+            background-color: #0d0d0d; 
+            border-top: 1px solid #1f1f1f; 
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            padding: 30px; 
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            transition: all 0.4s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 229, 255, 0.3);
+            border: 1px solid var(--primary-color);
+            background-color: rgba(35, 35, 35, 0.9);
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            border-top: 3px solid var(--secondary-color);
+            border-right: 3px solid var(--secondary-color);
+            transition: transform var(--transition-speed);
+        }
+        
+        .service-card:hover::after {
+            transform: scale(1.5);
+            opacity: 0.5;
+        }
+
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5em !important;
+        }
+
+        .about-section {
+             background-color: var(--dark-bg);
+             padding: 80px 5%;
+        }
+
+        .about-section p, .policy-section p, .policy-section ul {
+            max-width: 900px;
+            margin: 20px auto 30px;
+            text-align: left; 
+            color: var(--sub-text);
+        }
+        
+        .policy-section h3 {
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr; 
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            border: 1px solid #333;
+        }
+
+        .contact-info {
+             padding-right: 20px;
+             border-right: 1px solid #333;
+        }
+        
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            text-align: left; 
+        }
+        
+        .contact-info p {
+            font-size: 0.9em !important;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background-color: rgba(10, 10, 10, 0.8); 
+            color: var(--light-text);
+            font-family: var(--font-stack);
+            transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+             border-color: var(--primary-color);
+             box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.5);
+             outline: none;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            color: var(--dark-bg);
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.5s, transform 0.5s;
+            opacity: 0;
+            transform: translateY(-50px);
+            pointer-events: none; 
+        }
+
+        .site-footer {
+            background-color: var(--card-bg);
+            color: var(--sub-text);
+            padding: 30px 5%;
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            font-size: 1.5em !important;
+            margin-left: 15px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        
+        .social-icons .fa-facebook-square {
+            color: var(--facebook-blue);
+        }
+        
+        .social-icons .fa-facebook-square:hover {
+            color: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        
+        @media (max-width: 1000px) {
+            .contact-layout {
+                grid-template-columns: 1fr; 
+                padding: 40px;
+            }
+            .contact-info {
+                border-right: none;
+                border-bottom: 1px solid #333;
+                padding-right: 0;
+                padding-bottom: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .site-nav {
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.8em !important;
+            }
+            section h2 {
+                font-size: 2em !important;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .social-icons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-logo">
+            <a href="/"><img src="logo/gazatecware.png" alt="Gaza Techware Logo"></a>
+        </div>
+        <nav class="site-nav">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#policy">Policy</a>
+            <a href="#terms">Terms</a>
+            <a href="#contact" class="cta-button">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Leading The Future of Tech Innovation</h1>
+                <p>Delivering secure, innovative, and scalable technology solutions for business and community growth across the digital and hardware landscape. We build reliable systems for tomorrow.</p>
+                <a href="#services" class="cta-button primary-cta">Explore Solutions</a>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2>Our Core Offerings</h2>
+            <div class="card-grid">
+                <div class="service-card">
+                    <h3>Software Development 🌊</h3>
+                    <p>We use the **Efficient Waterfall Methodology** for projects with clearly defined, static requirements. This model involves strict, sequential phases: **Requirements Gathering, Design, Implementation, Testing, and Deployment**, ensuring thorough documentation and control before moving to the next stage.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Electronics & Repair 🔧</h3>
+                    <p>Expertise in component sourcing, custom device prototyping, firmware development, and comprehensive repair services for critical hardware and consumer electronics.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ki-Cad/PCB Design 🖲️</h3>
+                    <p>From schematic capture to complex multi-layer Printed Circuit Board (PCB) layout and design optimization, ensuring efficient manufacturing and reliability.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Electrical Planning ⚡</h3>
+                    <p>Comprehensive electrical system design, load analysis, and infrastructure planning for residential, commercial, and industrial applications</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="about-section">
+            <h2>Our Commitment</h2>
+            <p>Gaza Techware is dedicated to fostering local tech talent and providing reliable, cutting-edge technology infrastructure that drives economic resilience. We are more than a service provider; we are partners committed to your long-term success through sustainable and innovative solutions. Our mission is built on transparency, quality, and community upliftment, ensuring every project contributes positively to the digital landscape.</p>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <h2>Let's Start A Project</h2>
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We're ready to discuss your needs and provide expert consultation. Reach out using the details below or fill out the form, and a specialist will contact you within one business day.</p>
+                    <p>
+                        <strong>Email Support:</strong>
+                        <a href="mailto:info@gazatechware.com">info@gazatechware.com</a>
+                    </p>
+                    <p>
+                        <strong>Phone:</strong>
+                        <a href="tel:+0963881239">+0963 881 239</a>
+                    </p>
+                    <p>
+                        <strong>Office Address:</strong>
+                        San Antonio, Purok Dayat Centro, Guagua, Pampanga, Philippines
+                    </p>
+                </div>
+                <form class="contact-form" id="projectForm" action="#" method="POST"> 
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+
+                    <label for="message">Project Description</label>
+                    <textarea id="message" name="message" placeholder="I need a new e-commerce platform and hardware repair..." required></textarea>
+
+                    <div class="button-group">
+                        <button type="submit" class="cta-button">Send Inquiry</button>
+                        <button type="button" class="reset-button" onclick="deleteContentLetterByLetter()">Sequential Delete</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="policy" class="policy-section">
+            <h2>Privacy Policy</h2>
+            <p>Last Updated: October 17, 2025</p>
+
+            <h3>1. Data Collection & Use</h3>
+            <p>We collect information you voluntarily provide through the contact form (name, email, project details) to respond to your inquiries, manage service contracts, and provide personalized support. We are committed to minimizing data collection to only what is necessary for business operations.</p>
+
+            <h3>2. Data Security & Storage</h3>
+            <p>We employ modern technical and organizational security measures, including encryption and access controls, to protect the security of your personal information. All data is handled in compliance with local regulations. However, no internet transmission is 100% secure.</p>
+            
+            <h3>3. Third-Party Sharing</h3>
+            <p>We do not sell your personal information. We may share data only with trusted third parties necessary for delivering the requested service (e.g., payment processors, hosting services), and under strict confidentiality agreements.</p>
+        </section>
+        
+        <section id="terms" class="policy-section">
+            <h2>Terms of Use</h2>
+            <p>Effective Date: October 17, 2025</p>
+
+            <h3>1. Service Agreement</h3>
+            <p>By accessing and using our services, you accept and agree to be bound by these Terms of Use. These terms govern all services provided by Gaza Techware, including software development, electronics repair, and consulting.</p>
+
+            <h3>2. Intellectual Property Rights</h3>
+            <p>All intellectual property on this website and in our standard software products (code, designs, content) is owned by Gaza Techware. Custom-developed software IP ownership is defined in the separate service contract with the client.</p>
+
+            <h3>3. Limitation of Liability</h3>
+            <p>Gaza Techware will not be liable for any indirect or consequential damages (loss of profits, data loss) resulting from the use or inability to use our services, except in cases of gross negligence or willful misconduct.</p>
+            
+        </section>
+
+        <div id="message-box" class="message-box"></div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Gaza Techware. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#policy">Privacy Policy</a>
+                <a href="#terms">Terms of Use</a>
+                <div class="social-icons">
+                    <a href="https://facebook.com/gazatechware" target="_blank" aria-label="Find us on Facebook">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        function showMessage(message, type) {
+            const msgBox = document.getElementById('message-box');
+            msgBox.textContent = message;
+            msgBox.classList.remove('success', 'error', 'show'); 
+            
+            msgBox.classList.add(type, 'show');
+
+            setTimeout(() => {
+                msgBox.classList.remove('show');
+            }, 4000); 
+        }
+
+        
+        let fieldsToDelete = [];
+        let currentFieldIndex = 0;
+
+        function initializeDeleteFields() {
+            fieldsToDelete = Array.from(document.querySelectorAll('#projectForm input[required], #projectForm textarea[required]'));
+            fieldsToDelete.reverse(); 
+            currentFieldIndex = 0;
+        }
+
+        window.deleteContentLetterByLetter = function() {
+            if (fieldsToDelete.length === 0 || currentFieldIndex >= fieldsToDelete.length) {
+                initializeDeleteFields();
+                if (fieldsToDelete.every(field => field.value.length === 0)) {
+                    showMessage('All fields are already cleared.', 'error');
+                    fieldsToDelete = [];
+                    return;
+                }
+            }
+
+            while (currentFieldIndex < fieldsToDelete.length) {
+                const field = fieldsToDelete[currentFieldIndex];
+                
+                if (field.value.length > 0) {
+                    field.focus();
+                    let currentValue = field.value;
+                    currentValue = currentValue.substring(0, currentValue.length - 1);
+                    field.value = currentValue;
+                    
+                    if (field.value.length === 0) {
+                        currentFieldIndex++;
+                    }
+                    return; 
+                } 
+                else {
+                    currentFieldIndex++;
+                }
+            }
+            
+            if (currentFieldIndex >= fieldsToDelete.length) {
+                showMessage('All fields cleared successfully.', 'success');
+                fieldsToDelete = [];
+                currentFieldIndex = 0; 
+            }
+        }
+        
+        
+        document.getElementById('projectForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            console.log("Inquiry data captured:", { name, email, message });
+            showMessage('Inquiry Sent! A specialist will contact you soon.', 'success');
+            
+            this.reset();
+            fieldsToDelete = [];
+            currentFieldIndex = 0; 
+        });
+
+    </script>
+
+</body>
+</html>
